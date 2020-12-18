@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
-import {getUserData} from '../../redux/reducer'
+import {getUser} from '../../redux/reducer'
 
 class Register extends Component{
     constructor(){
@@ -26,3 +26,5 @@ class Register extends Component{
         this.setState({ password: e.target.value})
     }
 }
+
+export default connect(null, {getUser})(Register)
