@@ -4,6 +4,7 @@ const massive = require('massive')
 const session = require('express-session')
 const authCtrl = require("./controllers/authController")
 const postCtrl = require("./controllers/postController");
+const commentCtrl = require("./controllers/commentController");
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
 
 const app = express()
@@ -37,6 +38,9 @@ app.post("/auth/register", authCtrl.register)
 app.post("/auth/login", authCtrl.login)
 app.post("/auth/logout", authCtrl.logout)
 
+//# Comments
+app.get("/api/comments/:postId", commentCtrl.getComments)
+app.post("/api/comments/:postId", commentCtrl.addComment)
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'))
