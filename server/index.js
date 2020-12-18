@@ -38,9 +38,14 @@ app.post("/auth/register", authCtrl.register)
 app.post("/auth/login", authCtrl.login)
 app.post("/auth/logout", authCtrl.logout)
 
+
 //# Comments
 app.get("/api/comments/:postId", commentCtrl.getComments)
 app.post("/api/comments/:postId", commentCtrl.addComment)
+
+//# Post
+app.get("/dash/posts", postCtrl.getAllPosts)
+
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'))
