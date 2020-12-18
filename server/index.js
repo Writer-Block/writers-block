@@ -45,6 +45,7 @@ app.post("/api/comments/:postId", commentCtrl.addComment)
 
 //# Post
 app.get("/dash/posts", postCtrl.getAllPosts)
+app.get("/api/myposts/:user_id", postCtrl.getUserPosts); 
 
 
 app.get('*', (req, res) => {
