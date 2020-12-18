@@ -1,92 +1,133 @@
-// import React, {useEffect, useState} from 'react'
-// import {connect} from "react-redux"
-// import axios from "axios"
-// import Comment from "./Comment"
+import React, {Component} from 'react'
+import {connect} from "react-redux"
+import axios from "axios"
+import Comment from "./Comment"
 
 
-// const Post = () => {
-//     const [comments, setComments] = useState([])
-//     const [comment, setComment] = useState("")
-//     const [add, setAdd] = useState(false)
-
-    // useEffect(() => {
-    //     getComments()
-    // }, [])
+class Post extends Component {
+    constructor() {
+        super()
+        this.state = {
+            content: "",
+            comment: "",
+            comments: [],
+            add: false
+        }
+    }
     
-    // const getComments = async () => {
-    //     try {
-            // const res = await axios.get(`/api/comments/${post_id}`)
-    //         setComments(res.data)
-    //       } catch (err) {
-    //         console.log(err)
-    //       }
-    //   }    
 
-    // const addComment = async (e) => {
-    //     e.preventDefault()
-    //     try {
-            // await axios.post(`/api/comments/${post_id}`, {comment})
-    //         setComment("")
-            // getBooks()
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
+    componentDidMount = () => {
+        this.getUserPost()
+        this.getComments()
+    }
 
-    // const mappedComments = comments.map((comment) => {
-    //     return (
-    //         <Comment
-    //             key = {`${comment.comment_id}`} 
-    //             comment = {comment}
-    //             getComments = {getComments}
-    //         />
-    //     )
-    // })
+    getUserPost = () => {
+        axios.get(
+            `/dash/posts/${this.props.match.params.post_id}`
+        )
+        .then (res => {
+            this.setState({
+                content: res.data[0].content
+            })
+            console.log(res.data[0])
+        })
+        .catch(err => console.log(err))
+    }
+    
+    getComments = async () => {
+        try {
+            const res = await axios.get(`/api/comments/${this.props.match.params.post_id}`)
+            this.setState({
+                comments: res.data
+            })
+          } catch (err) {
+            console.log(err)
+          }
+      }    
 
-//       return(
-//           <div>
-//               {add
-//               ?
-//                 <form>
-//                     <input
-//                         name = "comment"
-//                         value = {comment}
-//                         placeholder = "Enter your comment"
-//                         onChange = {e => setComment(e.target.value)}
-//                     />
-//                     <button 
-//                         onClick = {(e) => {
-//                             addComment(e)
-//                             setAdd(!add)
-//                         }}
-//                         > 
-//                         Submit 
-//                     </button>
-//                     <button
-//                         onClick = {() => {
-//                             setAdd(!add)
-//                         }}
-//                     >
-//                         Cancel
-//                     </button>
-//                 </form>
-//               :
-//                 <button
-//                     onClick = {() => {
-//                         setAdd(!add)
-//                     }}
-//                 >
-//                     Add Comment
-//                 </button>
-//               }
-//             <ul
-//                 style = {{listStyle: "none"}} 
-//                 >
-//                 {mappedComments}
-//             </ul>
-//           </div>
-//       )
-// }
+    addComment = async (e) => {
+        e.preventDefault()
+        const {comment} = this.state
+        try {
+            await axios.post(`/api/comments/${this.props.match.params.post_id}`, {comment})
+            this.setState({
+                comment: ""
+            })
+            this.getComments()
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
-// const mapStateToProps = state => state
-// export default connect(mapStateToProps)(Post)
+    setAdd = () => {
+        this.setState({
+            add: !this.state.add
+        })
+        console.log(this.state)
+    }
+
+    handleComment = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    render(){
+        const {setAdd} = this
+        const {comment, content, add} = this.state
+        let mappedComments = []
+        mappedComments = this.state.comments.map((comment) => (
+            <Comment
+                key = {comment.comment_id}
+                comment = {comment}
+            />
+        ))
+        return(
+            <div>
+              {add
+                ?
+                  <form>
+                      <input
+                          name = "comment"
+                          value = {comment}
+                          placeholder = "Enter your comment"
+                          onChange = {e => this.handleComment(e)}
+                      />
+                      <button 
+                          onClick = {(e) => {
+                              this.addComment(e)
+                              setAdd()
+                          }}
+                          > 
+                          Submit 
+                      </button>
+                      <button
+                          onClick = {() => {
+                              setAdd()
+                          }}
+                      >
+                          Cancel
+                      </button>
+                  </form>
+                :
+                  <button
+                      onClick = {() => {
+                          setAdd()
+                      }}
+                  >
+                      Add Comment
+                  </button>
+                }
+                <p>{content}</p>
+              <ul
+                  style = {{listStyle: "none"}} 
+                  >
+                  {mappedComments}
+              </ul>
+            </div>
+        )
+    }
+}
+
+const mapStateToProps = state => state
+export default connect(mapStateToProps)(Post)

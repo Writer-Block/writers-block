@@ -42,6 +42,7 @@ app.post("/auth/logout", authCtrl.logout)
 //# Comments
 app.get("/api/comments/:postId", commentCtrl.getComments)
 app.post("/api/comments/:postId", commentCtrl.addComment)
+app.get("/dash/posts/:postId", commentCtrl.getOnePost)
 
 //# Post
 app.get("/dash/posts", postCtrl.getAllPosts)
