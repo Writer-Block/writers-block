@@ -2,31 +2,39 @@ import './UserPosts.css';
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'
+import axios from 'axios';
 
-// this component gets and displays all of the users posts. each displayed post is a link to 
-// that single posts page. 
+// this component gets and displays all of the users posts based on 
+// the userid on redux state. each displayed post is a link to 
+// that single posts page. where you can see the comments and edit/delte the post
 class UserPosts extends Component{
     constructor(){
         super();
 
         this.state = {
-            myPosts: [
-                {post_id: 3, content: "Wassup doggieeees"},
-                {post_id: 4, content: "Leedle leedle leedle"}
-            ]
+            myPosts: []
         }
+    }
+
+    //gets all the users posts on mount
+    componentDidMount(){
+        this.getUserPosts();
     }
 
     //gets all posts
     getUserPosts = async () => {
         //axios request to get posts for user id from redux
+        const userPosts = await axios.get(`/api/myposts/${this.props.user}`);
+        this.setState({
+            myPosts: userPosts.data
+        })
     }
 
     //maps over my posts from state and displays each one of them. each post is a link
     render(){
         const mappedPosts = this.state.myPosts.map((post, index) => {
             return(
-                <div>
+                <div key={index}>
                     <p>{post.content}</p>
                 </div>
             )
@@ -34,9 +42,14 @@ class UserPosts extends Component{
 
         return(
         <div className='UserPosts'>
-            {console.log(this.props)}
-            <h1>UserPosts</h1>
-            {mappedPosts}
+            {!this.state.myPosts[0] ? 
+                <h1>You don't have any posts</h1>
+                :
+                <div className="usersPost">
+                    <h1>UserPosts</h1>
+                    {mappedPosts}
+                </div>
+            }
         </div>
         )
     }
