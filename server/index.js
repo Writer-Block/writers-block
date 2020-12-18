@@ -3,7 +3,7 @@ const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 const authCtrl = require("./controllers/authController")
-
+const postCtrl = require("./controllers/postController");
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
 
 const app = express()
