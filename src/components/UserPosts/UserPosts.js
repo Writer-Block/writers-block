@@ -1,6 +1,7 @@
 import './UserPosts.css';
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux'
 
 // this component gets and displays all of the users posts. each displayed post is a link to 
 // that single posts page. 
@@ -33,6 +34,7 @@ class UserPosts extends Component{
 
         return(
         <div className='UserPosts'>
+            {console.log(this.props)}
             <h1>UserPosts</h1>
             {mappedPosts}
         </div>
@@ -40,4 +42,8 @@ class UserPosts extends Component{
     }
 }
 
-export default UserPosts;
+function mapStateToProps(state){
+    return {user: state.user}
+}
+
+export default connect(mapStateToProps)(UserPosts);
