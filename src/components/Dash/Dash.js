@@ -33,11 +33,14 @@ class Dash extends Component{
     render(){
         const mappedPosts = this.state.posts.map((post, index) => {
             return(
-                <div key={index} >
-                    <h2> Your Writing:
-                        <p>{post.content}</p>
-                    </h2>
-                    <Link to={`/post/${post.post_id}`}>Go To Post</Link>
+                <div className='container' key={index} >
+                    <h2> Your Writing:</h2>
+                        <div className='post-container'>
+                            <h5>{post.content}</h5>
+                        </div>
+                        <div className='link-box'>
+                    <Link style={{textDecoration: "none", color: "white"}} to={`/post/${post.post_id}`}>Go To Post</Link>
+                    </div>
                 </div>
             )
         })

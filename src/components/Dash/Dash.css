@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.post-container{
+    background-color: #E5D0CC;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    height: 30vh;
+    width: 40vw;
+    border-style: solid;
+    border-color: black;
+    border-width: 5px;
+}
+
+.link-box{
+    border-style: double;
+    border-width: 3px;
+    border-color: black;
+    height: 20px;
+    width: 10vw;
+    background-color: #7F7B82;
+}
