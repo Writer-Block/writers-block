@@ -18,5 +18,11 @@ module.exports = {
             console.log("Error in adding comment", err)
             res.sendStatus(404)
         }
+    },
+    getOnePost: async (req, res) => {
+        const db = req.app.get('db')
+        const {postId} = req.params
+        const onePost = await db.comment.get_one_post(postId)
+        res.status(200).send(onePost)
     }
 }
