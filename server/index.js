@@ -51,6 +51,9 @@ app.get("/api/myposts/:user_id", postCtrl.getUserPosts);
 
 //# Pic
 app.get("/api/pic/:user_id", picCtrl.getProfilePic)
+app.get("/api/signs3", picCtrl.config)
+app.post("/api/signs3", picCtrl.deleteProfilePic)
+app.put("/api/user", picCtrl.updateProfilePic)
 
 
 app.get('*', (req, res) => {

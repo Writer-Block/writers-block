@@ -6,7 +6,8 @@
     align-items: center;
 }
 
-img{
+.profile-pic{
     height: 80px;
     width: 80px;
+    border-radius: 50%;
 }
