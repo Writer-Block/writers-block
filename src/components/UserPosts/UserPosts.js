@@ -57,7 +57,7 @@ class UserPosts extends Component{
 }
 
 function mapStateToProps(state){
-    return {user: state.user_id}
+    return {user_id: state.user_id}
 }
 
 export default connect(mapStateToProps)(UserPosts);

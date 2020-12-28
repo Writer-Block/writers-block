@@ -28,7 +28,7 @@ class Login extends Component{
         const {username, password} = this.state
         try {
             const user = await axios.post('/auth/login', {username, password})
-            this.props.getUser(user.data.id)
+            this.props.getUser(user.data.user_id)
             console.log(user.data)
             this.props.history.push('/dash')
         }catch(err){
