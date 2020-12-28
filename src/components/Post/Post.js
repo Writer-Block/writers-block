@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from "react-redux"
 import axios from "axios"
 import Comment from "./Comment"
-
+import "./Post.css"
 
 class Post extends Component {
     constructor() {
@@ -21,6 +21,7 @@ class Post extends Component {
         this.getComments()
     }
 
+    //# function for getting the content of the post
     getUserPost = () => {
         axios.get(
             `/dash/posts/${this.props.match.params.post_id}`
@@ -34,6 +35,7 @@ class Post extends Component {
         .catch(err => console.log(err))
     }
     
+    //# function for viewing all comments on a specific post
     getComments = async () => {
         try {
             const res = await axios.get(`/api/comments/${this.props.match.params.post_id}`)
@@ -45,6 +47,7 @@ class Post extends Component {
           }
       }    
 
+    //# function for adding comments
     addComment = async (e) => {
         e.preventDefault()
         const {comment} = this.state
@@ -59,6 +62,7 @@ class Post extends Component {
         }
     }
 
+    //# Switches between button and form
     setAdd = () => {
         this.setState({
             add: !this.state.add
@@ -83,42 +87,43 @@ class Post extends Component {
             />
         ))
         return(
-            <div>
-              {add
-                ?
-                  <form>
-                      <input
-                          name = "comment"
-                          value = {comment}
-                          placeholder = "Enter your comment"
-                          onChange = {e => this.handleComment(e)}
-                      />
-                      <button 
-                          onClick = {(e) => {
-                              this.addComment(e)
-                              setAdd()
-                          }}
-                          > 
-                          Submit 
-                      </button>
-                      <button
-                          onClick = {() => {
-                              setAdd()
-                          }}
-                      >
-                          Cancel
-                      </button>
-                  </form>
-                :
-                  <button
-                      onClick = {() => {
-                          setAdd()
-                      }}
-                  >
-                      Add Comment
-                  </button>
-                }
-                <p>{content}</p>
+            <div className = "post">
+                    <h3 className = "content">{content}</h3>
+                    {add
+                        ?
+                        <form>
+                            <input
+                                name = "comment"
+                                value = {comment}
+                                placeholder = "Enter your comment"
+                                onChange = {e => this.handleComment(e)}
+                            />
+                            <button 
+                                onClick = {(e) => {
+                                    this.addComment(e)
+                                    setAdd()
+                                }}
+                                > 
+                                Submit 
+                            </button>
+                            <button
+                                onClick = {() => {
+                                    setAdd()
+                                }}
+                            >
+                                Cancel
+                            </button>
+                        </form>
+                        :
+                        <button
+                            onClick = {() => {
+                                setAdd()
+                            }}
+                        >
+                            Add Comment
+                        </button>
+                    }
+                <h3>Comments</h3>
               <ul
                   style = {{listStyle: "none"}} 
                   >

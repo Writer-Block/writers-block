@@ -6,7 +6,7 @@ const Comment = (props) => {
 
     return(
         <div>
-            <h4>{comment}</h4>
+            <p className = "comment">{comment}</p>
         </div>
     )
 }
