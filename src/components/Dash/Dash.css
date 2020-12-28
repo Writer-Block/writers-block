@@ -1,8 +1,16 @@
+.dash-background{
+    height: 100%;
+    width: 100vw;
+    background-color: #444554;
+}
+
 .container{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    color: #BFACB5;
 }
 
 .post-container{
@@ -16,13 +24,16 @@
     border-style: solid;
     border-color: black;
     border-width: 5px;
+    color: black;
 }
 
 .link-box{
-    border-style: double;
-    border-width: 3px;
-    border-color: black;
     height: 20px;
-    width: 10vw;
+    width: 8vw;
     background-color: #7F7B82;
+}
+
+.link-box:hover{
+    background-color: black;
+    color: white;
 }
