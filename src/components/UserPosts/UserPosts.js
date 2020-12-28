@@ -24,7 +24,7 @@ class UserPosts extends Component{
     //gets all posts
     getUserPosts = async () => {
         //axios request to get posts for user id from redux
-        const userPosts = await axios.get(`/api/myposts/${this.props.user}`);
+        const userPosts = await axios.get(`/api/myposts/${this.props.user_id}`);
         this.setState({
             myPosts: userPosts.data
         })
@@ -34,9 +34,9 @@ class UserPosts extends Component{
     render(){
         const mappedPosts = this.state.myPosts.map((post, index) => {
             return(
-                <div key={index}>
+                <Link key={index} to={`/post/${post.post_id}`}>
                     <p>{post.content}</p>
-                </div>
+                </Link>
             )
         })
 
@@ -50,13 +50,14 @@ class UserPosts extends Component{
                     {mappedPosts}
                 </div>
             }
+            {console.log(this.props.user_id)}
         </div>
         )
     }
 }
 
 function mapStateToProps(state){
-    return {user: state.user}
+    return {user: state.user_id}
 }
 
 export default connect(mapStateToProps)(UserPosts);
