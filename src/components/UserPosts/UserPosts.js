@@ -34,19 +34,28 @@ class UserPosts extends Component{
     render(){
         const mappedPosts = this.state.myPosts.map((post, index) => {
             return(
-                <Link key={index} to={`/post/${post.post_id}`}>
-                    <p>{post.content}</p>
-                </Link>
+                <div key={index}>
+                    <Link key={index} to={`/post/${post.post_id}`} className="myPostLink">
+                        <div className="userPost">
+                            <p>{post.content}</p>
+                        </div>
+                    </Link>
+
+                        <div className="userPostButtons">
+                            <h1> </h1> 
+                            <Link to={`/edit/${post.post_id}`}><button>Revise</button></Link>
+                        </div>
+                </div>
             )
         })
 
         return(
-        <div className='UserPosts'>
+        <div className='userPosts'>
             {!this.state.myPosts[0] ? 
                 <h1>You don't have any posts</h1>
                 :
                 <div className="usersPost">
-                    <h1>UserPosts</h1>
+                    <h1>Your Posts</h1>
                     {mappedPosts}
                 </div>
             }
