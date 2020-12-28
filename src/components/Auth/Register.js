@@ -3,6 +3,7 @@ import axios from 'axios'
 import {connect} from 'react-redux'
 import {getUser} from '../../redux/reducer'
 
+
 class Register extends Component{
     constructor(){
         super()
@@ -26,18 +27,19 @@ class Register extends Component{
         this.setState({ password: e.target.value})
     }
 
-    registerUser = async () => {
+    registerUser = async (e) => {
+        e.preventDefault()
         const {email, username, password} =this.state;
         try {
             const user = await axios.post('auth/register', {email, username, password})
-            this.props.getUser(user.data.id, user.data.email, user.data.username)
+            this.props.getUser(user.data.id)
             this.props.history.push('/dash')
         }catch(err){
         alert(err.response.request.response)
         }
     }
-    goToLogin = async () => {
-        this.props.history.push('/login')
+    goToLogin = async (e) => {
+        this.props.history.push('/')
     }
 
     render(){
@@ -52,7 +54,7 @@ class Register extends Component{
                         />
                     <input 
                         name='username'
-                        value={this.email}
+                        value={this.username}
                         placeholder='Username'
                         onChange={this.handleUsername}
                         />
