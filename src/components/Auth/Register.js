@@ -32,7 +32,7 @@ class Register extends Component{
         const {email, username, password} =this.state;
         try {
             const user = await axios.post('auth/register', {email, username, password})
-            this.props.getUser(user.data.id)
+            this.props.getUser(user.data.user_id)
             this.props.history.push('/dash')
         }catch(err){
         alert(err.response.request.response)
