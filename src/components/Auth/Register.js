@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import {connect} from 'react-redux'
 import {getUser} from '../../redux/reducer'
+import './Register.css'
 
 
 class Register extends Component{
@@ -45,7 +46,8 @@ class Register extends Component{
     render(){
         return (
             <div className='register'>
-                <form>
+                <form className='form'>
+                    <h2 className='title'>Writers Block</h2>
                     <input 
                         name= 'Email'
                         value= {this.email}
@@ -65,8 +67,8 @@ class Register extends Component{
                         placeholder='Enter Password'
                         onChange={this.handlePassword}
                         />
-                        <button onClick={this.registerUser} className='registerBtn'>Register</button>
-                        <button onClick={this.goToLogin}>Already have an account?</button>
+                        <button onClick={this.registerUser} className='registerButton'>Register</button>
+                        <button onClick={this.goToLogin} className='toLogin'>Already have an account?</button>
                 </form>
             </div>
         )
