@@ -5,7 +5,7 @@ module.exports = {
     register: async (req, res) => {
         const db = req.app.get('db')
         const {username, password, email} = req.body
-        const profile_pic = `robohash.org/${username}`
+        const profile_pic = `https://robohash.org/${username}`
         const existingUser = await db.auth.check_user(username)
         if (existingUser[0]) {
           return res.status(409).send("User already exists with that username")

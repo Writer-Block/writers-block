@@ -5,6 +5,7 @@ const session = require('express-session')
 const authCtrl = require("./controllers/authController")
 const postCtrl = require("./controllers/postController");
 const commentCtrl = require("./controllers/commentController");
+const picCtrl = require("./controllers/picController");
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
 
 const app = express()
@@ -47,6 +48,9 @@ app.get("/dash/posts/:postId", commentCtrl.getOnePost)
 //# Post
 app.get("/dash/posts", postCtrl.getAllPosts)
 app.get("/api/myposts/:user_id", postCtrl.getUserPosts); 
+
+//# Pic
+app.get("/api/pic/:user_id", picCtrl.getProfilePic)
 
 
 app.get('*', (req, res) => {
