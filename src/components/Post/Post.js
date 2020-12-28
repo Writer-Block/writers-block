@@ -88,17 +88,17 @@ class Post extends Component {
         ))
         return(
             <div className = "post">
-                    <h3 className = "content">{content}</h3>
+                    <p className = "content">{content}</p>
                     {add
                         ?
-                        <form>
-                            <input
+                        <form className = "comment-form">
+                            <input className = "comment-input"
                                 name = "comment"
                                 value = {comment}
                                 placeholder = "Enter your comment"
                                 onChange = {e => this.handleComment(e)}
                             />
-                            <button 
+                            <button className = "comment-button"
                                 onClick = {(e) => {
                                     this.addComment(e)
                                     setAdd()
@@ -106,7 +106,7 @@ class Post extends Component {
                                 > 
                                 Submit 
                             </button>
-                            <button
+                            <button className = "comment-button"
                                 onClick = {() => {
                                     setAdd()
                                 }}
@@ -115,7 +115,7 @@ class Post extends Component {
                             </button>
                         </form>
                         :
-                        <button
+                        <button className = "comment-button"
                             onClick = {() => {
                                 setAdd()
                             }}
@@ -123,7 +123,7 @@ class Post extends Component {
                             Add Comment
                         </button>
                     }
-                <h3>Comments</h3>
+                <h1 className = "comments">Comments</h1>
               <ul
                   style = {{listStyle: "none"}} 
                   >
