@@ -14,7 +14,7 @@
     object-fit: cover;
 }
 .update-button{
-    color: #172121;
+    color: whitesmoke;
     /* background-color: #BFACB5;  */
     border: none;
    background-color: transparent;
@@ -29,7 +29,7 @@
   
 }
 .link {
-    color: #172121;
+    color: whitesmoke;
     
    
     padding: 30px 20px;
@@ -41,13 +41,13 @@
     font-weight: bold;
 }
 .logo {
-    width: 128px;
-    height: 23px;
+    width: 142px;
+    height: 37px;
     
     
 }
 .cancel-button {
-    color: #172121;
+    color: whitesmoke;
     /* background-color: #BFACB5;  */
     border: none;
    background-color: transparent;
