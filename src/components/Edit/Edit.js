@@ -2,6 +2,7 @@ import './Edit.css';
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import axios from 'axios';
+import {Link} from 'react-router-dom'
 import copyicon from '../../media/copyicon.png'
 
 // this component gets the post with id off the url
@@ -69,7 +70,6 @@ class Edit extends Component{
         this.setState({
             input: this.state.post.content
         })
-        this.props.history.push('/userposts')
     }
 
     // handles save button. updates the content of the post.
@@ -109,14 +109,15 @@ class Edit extends Component{
         })
         return(
             <div className="Edit">
-                <h1>Edit Post</h1>
+                <Link  to="/userposts"><button className="backLink">{'<-Back'}</button></Link>
+                <h1>Revise</h1>
                 <div>
                     <textarea onChange={ e => this.changeHandler(e)} name="input" type="text" className="editContent" value={this.state.input}></textarea>
                 </div>
                 <div className="editButtons">
                     <button onClick={this.handleDelete}>Delete</button>
                     <div>
-                        <button onClick={this.handleCancel}>Cancel</button>
+                        <button onClick={this.handleCancel}>Undo</button>
                         <button onClick={this.handleSave}>Save</button>
                     </div>
                 </div>
