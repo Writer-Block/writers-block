@@ -47,20 +47,20 @@ class Register extends Component{
         return (
             <div className='register'>
                 <form className='form'>
-                    <h2 className='title'>Writers Block</h2>
-                    <input 
+                <img className='authLogo' alt='logo' src='https://cdn.discordapp.com/attachments/789196106965319750/793595338480156682/writersblocklogo.png'></img>
+                    <input className='input'
                         name= 'Email'
                         value= {this.email}
                         placeholder='Email'
                         onChange={this.handleEmail}
                         />
-                    <input 
+                    <input className='input'
                         name='username'
                         value={this.username}
                         placeholder='Username'
                         onChange={this.handleUsername}
                         />
-                    <input 
+                    <input className='input'
                         name='password'
                         type ='password'
                         value={this.password}

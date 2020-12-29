@@ -14,8 +14,21 @@ module.exports = {
         const userPosts = await db.user_posts.get_user_posts([user_id]);
         return res.status(200).send(userPosts);
       },
-
-    editUserPost: async (req, res) => {
+    addPost: async (req, res) => {
+        const db = req.app.get('db')
+        const {user_id} = req.session.user
+        const {content} = req.body
+  
+        try {
+            await db.post.add_post([+user_id, content])
+            res.sendStatus(200)
+        } catch(err) {
+            console.log("Error in adding post", err)
+            res.sendStatus(404)
+        }
+    },
+  
+      editUserPost: async (req, res) => {
         const db = req.app.get('db');
         const {post_id} = req.params;
         
@@ -35,5 +48,5 @@ module.exports = {
         // delete the post
         await db.user_posts.delete_post([post_id]);
         return res.status(200).send("deleted");
-      }
+      },
 }
