@@ -39,3 +39,19 @@
     background-color: #EFD0CC;
     border: 1px solid #444554;
 }
+
+.startWriting{
+    color: #444554;
+    text-decoration: none;
+    height: 50px;
+    width: 20vw;
+    background-color: #EFD0CC;
+    border: 1px solid #444554;
+}
+
+.noPosts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
