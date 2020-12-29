@@ -52,7 +52,10 @@ class UserPosts extends Component{
         return(
         <div className='userPosts'>
             {!this.state.myPosts[0] ? 
-                <h1>You don't have any posts</h1>
+                <div className="noPosts">
+                    <h1>You don't have any posts</h1>
+                    <Link  to="/createpost"><button className="startWriting">{'Start Writing Now'}</button></Link>
+                </div>
                 :
                 <div className="usersPost">
                     <h1>Your Posts</h1>
