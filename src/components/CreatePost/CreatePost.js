@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import {connect} from "react-redux"
 import axios from "axios"
-import {useHistory} from "react-router-dom"
+import {useHistory, Link} from "react-router-dom"
 import "./CreatePost.css"
 
 const CreatePost = (props) => {
@@ -24,20 +24,18 @@ const CreatePost = (props) => {
             <form className = "create-post">
                 <textarea className = "post-input"
                     name = "content"
-                    cols = "40"
-                    rows = "20"
                     value = {content}
                     placeholder = "Enter your post"
                     onChange = {e => setContent(e.target.value)}
                 />
-                <button
+                <Link
                     className = "submit"
                     onClick = {(e) => {
                         addPost(e)
                     }}
                 > 
-                    Submit 
-                </button>
+                    Submit Post
+                </Link>
             </form>
     )
 }
