@@ -30,12 +30,13 @@
     width: 8vw;
     margin-top: 20px;
     color: white;
-    background-color: #7F7B82;
+    background-color: black;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-decoration: none;
     border-radius: 15%;
 }
 
 .submit:hover{
-    background-color: black;
+    background-color: #444554;
+    transition: .5s;
 }
