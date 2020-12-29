@@ -24,11 +24,11 @@
 
 
 .registerButton {
-    color: black;
+    color: #444554;
   background-color: #BFACB5; 
   border: none;
  
-  padding: 15px 32px;
+  padding: 10px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -43,11 +43,11 @@
   }
 
   .toLogin {
-    color: black;
+    color: #444554;
     background-color: #BFACB5; 
     border: none;
    
-    padding: 15px 32px;
+    padding: 10px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

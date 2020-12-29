@@ -8,7 +8,7 @@
 }
 
 .form{
-    width: 40vw;
+    width: 35vw;
     height: 60%;
     display: flex;
     align-items: center;
@@ -24,11 +24,11 @@
 
 
 .loginButton {
-    color: black;
+    color: #444554;
   background-color: #BFACB5; 
   border: none;
  
-  padding: 15px 32px;
+  padding: 10px 26px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -43,11 +43,11 @@
   }
 
   .toRegister {
-    color: black;
+    color: #444554;
     background-color: #BFACB5; 
     border: none;
    
-    padding: 15px 32px;
+    padding: 10px 26px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -64,4 +64,18 @@
       
       
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  .authLogo {
+      width: 176px;
+      height: 48px;
+      
+  }
+
+  .input {
+      background-color: #EFD0Cc;
+      border-style: groove;
+      border-width: 1px;
+      padding: 5px;
+      border-color: #EFD0CC;
   }
