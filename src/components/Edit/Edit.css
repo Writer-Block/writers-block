@@ -36,20 +36,40 @@
 }
 
 .editComments{
-    width: 40vw;
+    display: flex;
+    justify-content: center;
+}
+
+.comment{
+    width: 32vw;
     min-height: 50px;
     background-color: white;
     text-align: left;
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
     border: 1px solid #444554;
     margin-bottom: 8px;
+    word-break: break-word;
 }
 
-@media only screen and (max-width: 798px){
+#comment:focus{
+    border: 1px solid #444554;
+}
+
+.copyButton{
+    width: 7vw;
+    height: 10vh;
+    margin-left: 1vw;
+    background-color: #EFD0CC;
+    border: 1px solid #444554;
+}
+
+/* @media only screen and (max-width: 798px){
     .editButtons{
         display: flex;
         flex-direction: column;
     }
-}
+} */
 

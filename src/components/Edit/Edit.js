@@ -13,7 +13,8 @@ class Edit extends Component{
 
         this.state = {
             post: {},
-            comments: []
+            comments: [],
+            input: ""
         }
     }
 
@@ -28,7 +29,8 @@ class Edit extends Component{
         const post = await axios.get(`/dash/posts/${this.props.match.params.post_id}`)
         //set state post = to axios return
         this.setState({
-            post: post.data[0]
+            post: post.data[0],
+            input: post.data[0].content
         })
     }
 
@@ -41,24 +43,61 @@ class Edit extends Component{
         })
     }
 
+    // copies text from comment to clipboard
+    copyCodeToClipboard = () => {
+          /* Get the text field */
+            var copyText = document.getElementById("comment");
+
+            /* Select the text field */
+            copyText.select();
+
+            /* Copy the text inside the text field */
+            document.execCommand("copy");
+      }
+
+    //handles input change
+    changeHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }        
+        
+        
+    // handles cancel button click. sets the input back to the original 
+    handleCancel = () => {
+        this.setState({
+            input: this.state.post.content
+        })
+    }
+
     render(){
         const mappedComments = this.state.comments.map((comment, index) => {
+            
             return(
-                <div key={index} className="editComments">
-                    <p>{comment.comment}</p>
+                <div key={comment.comment_id} className="editComments">
+                    <input name="" className="comment" id={`comment ${comment.comment_id}`} value={comment.comment} readOnly></input>
+                    <button className="copyButton" onClick={() => {
+                        /* Get the text field */
+                        var copyText = document.getElementById(`comment ${comment.comment_id}`);
+                        /* Select the text field */
+                        copyText.select();
+
+                        /* Copy the text inside the text field */
+                        document.execCommand("copy");
+                    }}>Copy</button>
                 </div>
             )
         })
         return(
             <div className="Edit">
                 <h1>Edit Post</h1>
-                <div className="editContent">
-                    <p>{this.state.post.content}</p>
+                <div>
+                    <textarea onChange={ e => this.changeHandler(e)} name="input" type="text" className="editContent" value={this.state.input}></textarea>
                 </div>
                 <div className="editButtons">
                     <button>Delete</button>
                     <div>
-                        <button>Cancel</button>
+                        <button onClick={this.handleCancel}>Cancel</button>
                         <button>Save</button>
                     </div>
                 </div>
