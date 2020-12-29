@@ -38,6 +38,7 @@
 .editComments{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .comment{
@@ -59,11 +60,19 @@
 }
 
 .copyButton{
-    width: 7vw;
-    height: 10vh;
+    width: 50px;
+    height: 50px;
     margin-left: 1vw;
     background-color: #EFD0CC;
     border: 1px solid #444554;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copyButton img{
+    width: 35px;
+    height: 35px;
 }
 
 /* @media only screen and (max-width: 798px){

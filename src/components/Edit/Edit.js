@@ -2,6 +2,7 @@ import './Edit.css';
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import axios from 'axios';
+import copyicon from '../../media/copyicon.png'
 
 // this component gets the post with id off the url
 // gets the comments to go with the post
@@ -84,7 +85,7 @@ class Edit extends Component{
 
                         /* Copy the text inside the text field */
                         document.execCommand("copy");
-                    }}>Copy</button>
+                    }}><img alt="copy" src={copyicon}/></button>
                 </div>
             )
         })
