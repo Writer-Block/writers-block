@@ -1,13 +1,65 @@
 .header{
-    height: 10vh;
+    height: 12vh;
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-image: repeating-linear-gradient( #444554, #BFACB5);
 }
 
 .profile-pic{
-    height: 80px;
-    width: 80px;
+    height: 65px;
+    width: 65px;
     border-radius: 50%;
+    object-fit: cover;
+}
+.update-button{
+    color: #172121;
+    /* background-color: #BFACB5;  */
+    border: none;
+   background-color: transparent;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    font: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+  
+}
+.link {
+    color: #172121;
+    
+   
+    padding: 30px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+.logo {
+    width: 128px;
+    height: 23px;
+    
+    
+}
+.cancel-button {
+    color: #172121;
+    /* background-color: #BFACB5;  */
+    border: none;
+   background-color: transparent;
+    padding: 2px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+
+}
+.h3 {
+    font-size: 14px;
 }
