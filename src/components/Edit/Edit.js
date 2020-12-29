@@ -69,6 +69,7 @@ class Edit extends Component{
         this.setState({
             input: this.state.post.content
         })
+        this.props.history.push('/userposts')
     }
 
     // handles save button. updates the content of the post.
@@ -77,6 +78,7 @@ class Edit extends Component{
         this.setState({
             post: updatedPost.data[0]
         })
+        this.props.history.push('/userposts')
         console.log(updatedPost);
     }
 
