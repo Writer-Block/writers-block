@@ -71,6 +71,22 @@ class Edit extends Component{
         })
     }
 
+    // handles save button. updates the content of the post.
+    handleSave =  async () => {
+        const updatedPost = await axios.put(`/api/mypost/${this.state.post.post_id}`, {content: this.state.input})
+        this.setState({
+            post: updatedPost.data[0]
+        })
+        console.log(updatedPost);
+    }
+
+    // handles delete button. deletes the post and all comments that go with it
+    //sends you back to my posts page
+    handleDelete = async () => {
+        await axios.delete(`/api/mypost/delete/${this.state.post.post_id}`);
+        this.props.history.push('/userposts');
+    }
+
     render(){
         const mappedComments = this.state.comments.map((comment, index) => {
             
@@ -96,10 +112,10 @@ class Edit extends Component{
                     <textarea onChange={ e => this.changeHandler(e)} name="input" type="text" className="editContent" value={this.state.input}></textarea>
                 </div>
                 <div className="editButtons">
-                    <button>Delete</button>
+                    <button onClick={this.handleDelete}>Delete</button>
                     <div>
                         <button onClick={this.handleCancel}>Cancel</button>
-                        <button>Save</button>
+                        <button onClick={this.handleSave}>Save</button>
                     </div>
                 </div>
 

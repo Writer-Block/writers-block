@@ -48,6 +48,8 @@ app.get("/dash/posts/:postId", commentCtrl.getOnePost)
 //# Post
 app.get("/dash/posts", postCtrl.getAllPosts)
 app.get("/api/myposts/:user_id", postCtrl.getUserPosts); 
+app.put("/api/mypost/:post_id", postCtrl.editUserPost);
+app.delete("/api/mypost/delete/:post_id", postCtrl.deletePost);
 
 //# Pic
 app.get("/api/pic/:user_id", picCtrl.getProfilePic)
