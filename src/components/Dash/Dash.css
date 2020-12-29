@@ -5,7 +5,7 @@
 }
 
 .container{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,21 +19,29 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-    height: 30vh;
-    width: 40vw;
-    border-style: solid;
-    border-color: black;
-    border-width: 5px;
+    width: 60vw;
     color: black;
+    box-sizing: content-box;
+    transition: 0.8s;
+}
+
+.post-container:hover{
+    box-shadow: 5px 10px 5px 3px #E5D0CC;
+    background-color: #BFACB5;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
 }
 
 .link-box{
     height: 20px;
     width: 8vw;
-    background-color: #7F7B82;
+    background-color: black;
+    margin-top: 15px;
+    transition: .3s;
 }
 
 .link-box:hover{
-    background-color: black;
+    background-color: #444554;
     color: white;
 }
