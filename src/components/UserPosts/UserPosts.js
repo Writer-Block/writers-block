@@ -24,7 +24,7 @@ class UserPosts extends Component{
     //gets all posts
     getUserPosts = async () => {
         //axios request to get posts for user id from redux
-        const userPosts = await axios.get(`/api/myposts/${this.props.user_id}`);
+        const userPosts = await axios.get(`/api/myposts`);
         this.setState({
             myPosts: userPosts.data
         })
