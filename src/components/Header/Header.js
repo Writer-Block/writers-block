@@ -6,6 +6,7 @@ import axios from "axios"
 import { v4 as randomString } from 'uuid'
 import {useDropzone} from 'react-dropzone'
 import { GridLoader } from 'react-spinners'
+import {NavDropdown } from 'react-bootstrap'
 import "./Header.css"
 
 const Header = (props) => {
@@ -16,6 +17,7 @@ const Header = (props) => {
     const [pic, setPic] = useState("")
     const [update, setUpdate] = useState(false)
     const [isUploading, setUploading] = useState(false)
+    const [show, setShow] = useState(false)
 
     const logout = async () => {
         try {
@@ -98,7 +100,12 @@ const Header = (props) => {
         }
     })
 
-
+    const showDropdown = () => {
+        setShow(true)
+    }
+    const hideDropdown = () => {
+        setShow(false)
+    }
         return (
             <div>
                 {user_id
@@ -123,42 +130,38 @@ const Header = (props) => {
                     >
                         All Posts
                     </Link>
-                    <Link to = "/"
-                        className = "link"
-                        id = "logout"
-                        onClick = {logout}
-                    >
-                        Logout
-                    </Link>
-                    <img className = "profile-pic" alt = "profile-pic" src = {`${pic}`}/>
-                    {update
-                            ?
-                            <div className = "update-box">
-                                <div {...getRootProps({className: "drop-zone"})}>
-                                    <input {...getInputProps()} />
-                                    {isUploading 
-                                    ? 
-                                        <GridLoader/> 
-                                    : 
-                                        <h3 className='h3'>Drop File or Click Here</h3>}
-                                </div>
-                                <button
-                                    className = "cancel-button"
-                                    onClick = {() => {
-                                        setUpdate(!update)
-                                    }}> 
-                                    Cancel
-                                </button> 
+                    <NavDropdown title = {isUploading 
+                        ? 
+                            <GridLoader/> 
+                        : 
+                            <img className = "profile-pic" alt = "profile-pic" src = {`${pic}`}/>
+                        }  
+                            id="basic-nav-dropdown" 
+                            className = "dropdown"
+                            show={show}
+                            onMouseEnter={showDropdown} 
+                            onMouseLeave={hideDropdown}
+                            >
+                            <div className = "dropdown-menu">
+                                <NavDropdown.Item>
+                                        <div className = "update-button">
+                                            <div {...getRootProps({className: "drop-zone"})}>
+                                                <input {...getInputProps()} />
+                                                <h3 className='h3'>Update Profile Picture</h3>
+                                            </div>
+                                        </div>
+                                </NavDropdown.Item>
+                                <NavDropdown.Item>
+                                    <Link to = "/"
+                                        className = "link"
+                                        id = "logout"
+                                        onClick = {logout}
+                                    >
+                                        Logout
+                                    </Link>
+                                </NavDropdown.Item>
                             </div>
-                            :
-                            <button
-                                className = "update-button"
-                                onClick = {() => {
-                                    setUpdate(!update)
-                                }}> 
-                                Update Profile Picture 
-                            </button>  
-                        }
+                    </NavDropdown>
                 </div>
                 :
                     null
