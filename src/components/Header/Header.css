@@ -46,20 +46,17 @@
     
     
 }
-.cancel-button {
-    color: whitesmoke;
-    /* background-color: #BFACB5;  */
-    border: none;
-   background-color: transparent;
-    padding: 2px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: bold;
 
-}
 .h3 {
     font-size: 14px;
+}
+
+.dropdown-menu{
+    height: 25vh;
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 55%;
 }
