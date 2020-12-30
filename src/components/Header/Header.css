@@ -12,6 +12,8 @@
     width: 65px;
     border-radius: 50%;
     object-fit: cover;
+    padding: 5px;
+    
 }
 .update-button{
     color: whitesmoke;
@@ -44,7 +46,6 @@
     width: 142px;
     height: 37px;
     
-    
 }
 
 .h3 {
@@ -52,11 +53,35 @@
 }
 
 .dropdown-menu{
-    height: 25vh;
-    width: 10vw;
+   
+    width: 80px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    margin-right: 55%;
+    /* margin-right: 55%; */
+    background-image: repeating-linear-gradient( transparent, #BFACB5);
+    position: relative;
+   
+}
+/* @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+    } */
+
+   
+
+.hrHeader {
+    height: 1px;
+    background-color: whitesmoke;
+    border: none;
+    width: 70%;
+
+}
+.drop {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100px;
+    flex-wrap: wrap;
 }
