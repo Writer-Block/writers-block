@@ -39,4 +39,13 @@ module.exports = {
         req.session.destroy()
         res.sendStatus(200)
     },
+
+    getMe: async (req, res) => {
+        if (req.session.user){
+            const {user_id} = req.session.user    
+            const db = req.app.get('db')
+            const [me] = await db.auth.get_me(+user_id)
+            res.status(200).send(me)
+        }
+    },
 }

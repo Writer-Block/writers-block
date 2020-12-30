@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {Link, useHistory} from "react-router-dom"
 import {connect, useDispatch} from "react-redux"
-import {logoutUser} from "../../redux/reducer"
+import {logoutUser, getUser} from "../../redux/reducer"
 import axios from "axios"
 import { v4 as randomString } from 'uuid'
 import {useDropzone} from 'react-dropzone'
@@ -29,16 +29,28 @@ const Header = (props) => {
         }
     }
 
+    const getMe = async () => {
+        try{
+            const res = await axios.get('/auth/me')
+            dispatch(getUser(res.data))    
+        }catch(err){
+            alert(err)
+        }
+    }
+
     useEffect(() =>{
+
         const getPic = async () => {
             try {
                 const res = await axios.get(`/api/pic/${user_id}`)
                 setPic(res.data)
+                console.log(res.data)
               } catch (err) {
                 console.log(err)
               }
           }
-          getPic()
+            getMe()
+            getPic()
     }, [user_id])
 
     const getSignedReq = ([file]) => {
@@ -106,6 +118,7 @@ const Header = (props) => {
     const hideDropdown = () => {
         setShow(false)
     }
+
         return (
             <div>
                 {user_id
@@ -172,4 +185,4 @@ const Header = (props) => {
 
 const mapStateToProps = state => state
 
-export default connect(mapStateToProps, {logoutUser})(Header)
+export default connect(mapStateToProps, {logoutUser, getUser})(Header)
