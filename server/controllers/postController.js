@@ -8,10 +8,10 @@ module.exports = {
 
     getUserPosts: async (req, res) => {
         const db = req.app.get('db')
-        const {user_id} = req.params;
+        const {user_id} = req.session.user;
         console.log(user_id);
       
-        const userPosts = await db.user_posts.get_user_posts([user_id]);
+        const userPosts = await db.user_posts.get_user_posts(+user_id);
         return res.status(200).send(userPosts);
       },
     addPost: async (req, res) => {
