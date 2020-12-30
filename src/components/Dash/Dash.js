@@ -40,7 +40,7 @@ class Dash extends Component{
                     </div>
                     <div className='username'>
                         <div className='link-box'>
-                        <Link style={{textDecoration: "none", color: "white"}} to={`/post/${post.post_id}`}>Go To Post</Link>
+                        <Link style={{textDecoration: "none", color: "white"}} to={post.user_id === this.props.user_id ? `/edit/${post.post_id}` : `/post/${post.post_id}`}>Go To Post</Link>
                     </div>
                         <h3> - {post.username} </h3>
                     </div>
