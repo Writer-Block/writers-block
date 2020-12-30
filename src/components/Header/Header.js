@@ -32,26 +32,26 @@ const Header = (props) => {
     const getMe = async () => {
         try{
             const res = await axios.get('/auth/me')
-            dispatch(getUser(res.data))    
+            dispatch(getUser(res.data.user_id))
+            setPic(res.data)    
         }catch(err){
             alert(err)
         }
     }
 
-    useEffect(() =>{
-
-        const getPic = async () => {
-            try {
-                const res = await axios.get(`/api/pic/${user_id}`)
-                setPic(res.data)
-                console.log(res.data)
-              } catch (err) {
-                console.log(err)
-              }
+    const getPic = async () => {
+        try {
+            const res = await axios.get(`/api/pic/${user_id}`)
+            setPic(res.data)
+          } catch (err) {
+            console.log(err)
           }
+      }
+
+    useEffect(() =>{
             getMe()
             getPic()
-    }, [user_id])
+    }, [getPic])
 
     const getSignedReq = ([file]) => {
         setUploading(true)
