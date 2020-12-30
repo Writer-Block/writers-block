@@ -38,7 +38,7 @@ massive({
 app.post("/auth/register", authCtrl.register)
 app.post("/auth/login", authCtrl.login)
 app.post("/auth/logout", authCtrl.logout)
-
+app.get('/auth/me', authCtrl.getMe)
 
 //# Comments
 app.get("/api/comments/:postId", commentCtrl.getComments)
