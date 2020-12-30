@@ -143,10 +143,12 @@ const Header = (props) => {
                     >
                         All Posts
                     </Link>
+                    <div className='drop'>
                     <NavDropdown title = {isUploading 
                         ? 
                             <GridLoader/> 
                         : 
+                            
                             <img className = "profile-pic" alt = "profile-pic" src = {`${pic}`}/>
                         }  
                             id="basic-nav-dropdown" 
@@ -163,6 +165,7 @@ const Header = (props) => {
                                                 <h3 className='h3'>Update Profile Picture</h3>
                                             </div>
                                         </div>
+                                        <hr className='hrHeader'></hr>
                                 </NavDropdown.Item>
                                 <NavDropdown.Item>
                                     <Link to = "/"
@@ -175,6 +178,7 @@ const Header = (props) => {
                                 </NavDropdown.Item>
                             </div>
                     </NavDropdown>
+                </div>
                 </div>
                 :
                     null
