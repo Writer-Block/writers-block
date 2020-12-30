@@ -21,6 +21,7 @@
     flex-wrap: wrap;
     width: 60vw;
     color: black;
+    margin-top: 10px;
     box-sizing: content-box;
     transition: 0.8s;
 }
@@ -44,4 +45,17 @@
 .link-box:hover{
     background-color: #444554;
     color: white;
+}
+
+.seperating-line{
+    height: 1px;
+    background-color: #BFACB5;
+    width: 60vw;
+}
+
+.username{
+    width: 60vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

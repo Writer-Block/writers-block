@@ -35,14 +35,18 @@ class Dash extends Component{
             return(
                 <div className='dash-background'>
                 <div className='container' key={index} >
-                    <h2> What you've written so far </h2>
-                        <div className='post-container'>
-                            <h5>{post.content}</h5>
-                        </div>
-                        <div className='link-box'>
-                    <Link style={{textDecoration: "none", color: "white"}} to={`/post/${post.post_id}`}>Go To Post</Link>
+                    <div className='post-container'>
+                        <h5>{post.content}</h5>
                     </div>
-                </div>
+                    <div className='username'>
+                        <div className='link-box'>
+                        <Link style={{textDecoration: "none", color: "white"}} to={`/post/${post.post_id}`}>Go To Post</Link>
+                    </div>
+                        <h3> - {post.username} </h3>
+                    </div>
+                        <hr className='seperating-line'></hr>
+                        <br></br>
+                    </div>
                 </div>
             )
         })
