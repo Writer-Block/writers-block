@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import axios from 'axios';
 import {Link} from 'react-router-dom'
-import copyicon from '../../media/copyicon.png'
+import copyicon from '../../media/copyicon.png';
+import trashicon from '../../media/trashicon.png';
 
 // this component gets the post with id off the url
 // gets the comments to go with the post
@@ -89,6 +90,11 @@ class Edit extends Component{
         this.props.history.push('/userposts');
     }
 
+    handleCommentDelete = async (comment_id) => {
+        await axios.delete(`/api/comments/${comment_id}`)
+        this.getComments();
+    }
+
     render(){
         const mappedComments = this.state.comments.map((comment, index) => {
             
@@ -104,6 +110,8 @@ class Edit extends Component{
                         /* Copy the text inside the text field */
                         document.execCommand("copy");
                     }}><img alt="copy" src={copyicon}/></button>
+
+                    <button className="copyButton" onClick={() => this.handleCommentDelete(comment.comment_id)}><img alt="trash" src={trashicon}/></button>
                 </div>
             )
         })

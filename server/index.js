@@ -44,6 +44,7 @@ app.post("/auth/logout", authCtrl.logout)
 app.get("/api/comments/:postId", commentCtrl.getComments)
 app.post("/api/comments/:postId", commentCtrl.addComment)
 app.get("/dash/posts/:postId", commentCtrl.getOnePost)
+app.delete("/api/comments/:comment_id", commentCtrl.deleteComment);
 
 //# Post
 app.get("/dash/posts", postCtrl.getAllPosts)
