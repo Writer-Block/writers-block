@@ -24,5 +24,12 @@ module.exports = {
         const {postId} = req.params
         const onePost = await db.comment.get_one_post(postId)
         res.status(200).send(onePost)
+    },
+    
+    deleteComment: async (req, res) => {
+        const db = req.app.get('db');
+        const {comment_id} = req.params;
+        await db.comment.delete_comment([comment_id]);
+        res.status(200).send("Deleted");
     }
 }
