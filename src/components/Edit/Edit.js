@@ -17,7 +17,8 @@ class Edit extends Component{
         this.state = {
             post: {},
             comments: [],
-            input: ""
+            input: "",
+            toggleDelete: false
         }
     }
 
@@ -123,10 +124,18 @@ class Edit extends Component{
                     <textarea onChange={ e => this.changeHandler(e)} name="input" type="text" className="editContent" value={this.state.input}></textarea>
                 </div>
                 <div className="editButtons">
-                    <button onClick={this.handleDelete}>Delete</button>
+                    <button onClick={() => this.setState({toggleDelete: true})}>Delete</button>
                     <div>
                         <button onClick={this.handleCancel}>Undo</button>
                         <button onClick={this.handleSave}>Save</button>
+                    </div>
+                </div>
+                <div className={this.state.toggleDelete ? "confirmBackground" : "hideConfirm"}></div>
+                <div className={this.state.toggleDelete ? "confirmDelete" : "hideConfirm"}>
+                    <h5>Are you sure you want to delete? This cannot be undone</h5>
+                    <div className="confirmDeleteButtons">
+                        <button onClick={() => this.setState({toggleDelete: false})}>Cancel</button>
+                        <button onClick={this.handleDelete}>Delete</button>
                     </div>
                 </div>
 

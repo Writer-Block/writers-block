@@ -65,6 +65,7 @@
     border: 1px solid #444554;
     margin-bottom: 8px;
     word-break: break-word;
+    margin-left: 5vw;
 }
 
 #comment:focus{
@@ -94,3 +95,34 @@
     }
 } */
 
+.confirmBackground{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: #444554;
+    opacity: 50%;
+}
+
+.confirmDelete{
+    position: absolute;
+    top: 37%;
+    left: 28%;
+    width: 40vw;
+    padding: 20px;
+    background-color: #EFD0CC;
+}
+
+.hideConfirm{
+    display: none;
+}
+
+.confirmDeleteButtons button{
+    height: 30px;
+    width: 75px;
+    background-color: #EFD0CC;
+    border: 1px solid #444554;
+    margin-right: 20px;
+    margin-left: 20px;
+}
