@@ -31,7 +31,6 @@ module.exports = {
       editUserPost: async (req, res) => {
         const db = req.app.get('db');
         const {post_id} = req.params;
-        
         const {content} = req.body;
 
         const newpost = await db.user_posts.edit_user_post([post_id, content]);
