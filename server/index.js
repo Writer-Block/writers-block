@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
+const cors = require('cors')
 const authCtrl = require("./controllers/authController")
 const postCtrl = require("./controllers/postController");
 const commentCtrl = require("./controllers/commentController");
@@ -13,6 +14,7 @@ const app = express()
 const path = require('path')
 
 app.use(express.json())
+app.use(cors())
 app.use(express.static(`${__dirname}/../build`))
 
 app.use(session({
