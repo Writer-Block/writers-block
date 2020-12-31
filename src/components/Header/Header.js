@@ -124,7 +124,7 @@ const Header = (props) => {
                 {user_id
                 ?
                 <div className = "header">
-                    <img className='logo' alt='logo' src='https://cdn.discordapp.com/attachments/789196106965319750/793607162936819712/writersblocklogowhite.png'></img>
+                    <img className='logo' alt='logo' src='https://cdn.discordapp.com/attachments/789196106965319750/794260091326824499/writersblocklogo.png'></img>
                     <Link to = "/createpost"
                         className = "link"
                         id = "createpost"
