@@ -79,9 +79,8 @@ class Post extends Component {
     render(){
         const {setAdd} = this
         const {comment, content, add} = this.state
-        let mappedComments = []
-        mappedComments = this.state.comments.map((comment) => (
-            <Comment className="commentcontainer"
+        const mappedComments = this.state.comments.map((comment) => (
+            <Comment
                 key = {comment.comment_id}
                 comment = {comment}
             />
@@ -123,7 +122,9 @@ class Post extends Component {
                             Add Comment
                         </button>
                     }
-                    {mappedComments}
+                    <ul className = "comments">
+                        {mappedComments}
+                    </ul>
             </div>
         )
     }

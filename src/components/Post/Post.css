@@ -1,10 +1,11 @@
 .post{
-    min-height: 100vh;
+    min-height: 88vh;
     max-height: fit-content;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     background-color: #f8f8f8;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -14,7 +15,6 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    flex-wrap: wrap;
     min-height: 40vh;
     width: 40vw;
     border: 1px solid #586F7C;
@@ -46,6 +46,12 @@
 
 .comments{
     color: #444554;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 6%;
 }
 
 .comment{
