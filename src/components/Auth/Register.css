@@ -13,10 +13,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #EFD0CC;
+    background-color: #B8DBD9;
     flex-direction: column;
     justify-content: space-evenly;
-    border-radius: 10px;
+    
 }
 .form:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
