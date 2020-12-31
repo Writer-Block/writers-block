@@ -1,7 +1,7 @@
 .dash-background{
     height: 100%;
     width: 100vw;
-    background-color: #444554;
+    background-color: #F8F8F8;
 }
 
 .container{
@@ -10,11 +10,11 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    color: #BFACB5;
+    color: #000000;
 }
 
 .post-container{
-    background-color: #E5D0CC;
+    background-color: white;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -27,8 +27,7 @@
 }
 
 .post-container:hover{
-    box-shadow: 5px 5px 5px 3px #e5d0ccb0;
-    background-color: #BFACB5;
+    box-shadow: 5px 5px 5px 3px #0000004d;
     border-style: solid;
     border-width: 1px;
     border-color: black;
@@ -37,14 +36,13 @@
 .link-box{
     height: 20px;
     width: 8vw;
-    background-color: black;
+    background-color: #586f7c86;
     margin-top: 15px;
     transition: .3s;
 }
 
 .link-box:hover{
-    background-color: #444554;
-    color: white;
+    background-color: #586F7CD0;
 }
 
 .seperating-line{
