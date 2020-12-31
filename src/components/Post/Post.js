@@ -81,7 +81,7 @@ class Post extends Component {
         const {comment, content, add} = this.state
         let mappedComments = []
         mappedComments = this.state.comments.map((comment) => (
-            <Comment
+            <Comment className="commentcontainer"
                 key = {comment.comment_id}
                 comment = {comment}
             />
@@ -123,12 +123,7 @@ class Post extends Component {
                             Add Comment
                         </button>
                     }
-                <h1 className = "comments">Comments</h1>
-              <ul
-                  style = {{listStyle: "none"}} 
-                  >
-                  {mappedComments}
-              </ul>
+                    {mappedComments}
             </div>
         )
     }
