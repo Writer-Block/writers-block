@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-image: repeating-linear-gradient( #444554, #BFACB5);
+    background-color: #2f4550;
 }
 
 .profile-pic{
@@ -16,7 +16,7 @@
     
 }
 .update-button{
-    color: whitesmoke;
+    color: #000000;
     /* background-color: #BFACB5;  */
     border: none;
    background-color: transparent;
@@ -60,7 +60,7 @@
     justify-content: space-around;
     align-items: center;
     /* margin-right: 55%; */
-    background-image: repeating-linear-gradient( transparent, #BFACB5);
+    background-image: repeating-linear-gradient( transparent, #586f7c);
     position: relative;
    
 }
