@@ -15,9 +15,10 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    min-height: 40vh;
+    min-height: 100px;
     width: 40vw;
     border: 1px solid #586F7C;
+    padding: 10px;
 }
 
 
