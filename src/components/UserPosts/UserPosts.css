@@ -41,6 +41,8 @@
     color: white;
     border: none;
     border-radius: 3px;
+    cursor: pointer
+
 }
 
 .startWriting{
@@ -51,6 +53,8 @@
     background-color: #586F7C;
     border: none;
     border-radius: 3px;
+    cursor: pointer
+
 }
 
 .noPosts{
