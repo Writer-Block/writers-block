@@ -169,7 +169,7 @@ const Header = (props) => {
                                 </NavDropdown.Item>
                                 <NavDropdown.Item>
                                     <Link to = "/"
-                                        className = "link"
+                                        className = "logout-btn"
                                         id = "logout"
                                         onClick = {logout}
                                     >
