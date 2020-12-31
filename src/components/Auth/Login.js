@@ -44,8 +44,9 @@ class Login extends Component{
     render(){
         return (
         <div className = 'login'>
+            
             <form className ='form'>
-            <img className='authLogo' alt='logo' src='https://cdn.discordapp.com/attachments/789196106965319750/793595338480156682/writersblocklogo.png'></img>
+            
             <input className='input'
                 name='username'
                 value={this.username}
@@ -60,8 +61,13 @@ class Login extends Component{
                 onChange={this.handlePassword}
                 />
             <button onClick={this.loginUser} className='loginButton'>Login</button>
-            <button onClick={this.goToRegister} className='toRegister'>Need an acount?</button>
+            
             </form>
+            <div className='space'>
+            
+            <img className='authLogo' alt='logo' src='https://cdn.discordapp.com/attachments/789196106965319750/794260091326824499/writersblocklogo.png'></img>
+            <button onClick={this.goToRegister} className='toRegister'>Need an acount?</button>
+            </div>
         </div>
         )
     }
