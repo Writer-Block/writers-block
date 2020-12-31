@@ -47,7 +47,7 @@ class Register extends Component{
         return (
             <div className='register'>
                 <form className='form'>
-                <img className='authLogo' alt='logo' src='https://cdn.discordapp.com/attachments/789196106965319750/793595338480156682/writersblocklogo.png'></img>
+                
                     <input className='input'
                         name= 'Email'
                         value= {this.email}
@@ -68,8 +68,14 @@ class Register extends Component{
                         onChange={this.handlePassword}
                         />
                         <button onClick={this.registerUser} className='registerButton'>Register</button>
-                        <button onClick={this.goToLogin} className='toLogin'>Already have an account?</button>
+                        
+                        
                 </form>
+                <div className='space'>
+            
+            <img className='authLogo' alt='logo' src='https://cdn.discordapp.com/attachments/789196106965319750/794260091326824499/writersblocklogo.png'></img>
+            <button onClick={this.goToLogin} className='toLogin'>Already have an account?</button>
+            </div>
             </div>
         )
     }

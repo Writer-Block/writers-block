@@ -1,10 +1,10 @@
 .register{
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient( #444554, #BFACB5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient( #586F7C, #B8DBD9);
+  background-color: #586F7C;
+  display: flex;
+  flex-wrap: row;
 }
 
 .form{
@@ -24,15 +24,15 @@
 
 
 .registerButton {
-    color: #444554;
-  background-color: #BFACB5; 
-  border: none;
- 
-  padding: 10px 25px;
+  color: #F4F4F9;
+  background-color: #586F7C; 
+  
+ border: none;
+  padding: 10px 26px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
+  font-size: 20px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
   
@@ -43,17 +43,16 @@
   }
 
   .toLogin {
-    color: #444554;
-    background-color: #BFACB5; 
+    color: #586F7C;
+    background-color: transparent; 
     border: none;
-   
-    padding: 10px 28px;
+    margin-bottom: 40px;
+    /* //padding: 10px 26px; */
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 30px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
     
   }
 
@@ -64,4 +63,13 @@
       
       
       font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+
+  .space {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    
   }
