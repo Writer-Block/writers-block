@@ -9,7 +9,7 @@
 }
 
 .userPosts h1{
-    color: #444554;
+    color: #000000;
 }
 
 .userPost{
@@ -19,8 +19,9 @@
     text-align: left;
     padding-left: 10px;
     padding-right: 10px;
-    border: 1px solid #444554;
+    border: 1px solid #586F7C;
     margin-bottom: 8px;
+    margin-top: 20px;
 }
 
 .myPostLink{
@@ -36,17 +37,20 @@
 
 .userPostButtons button{
     padding: 8px;
-    background-color: #EFD0CC;
-    border: 1px solid #444554;
+    background-color: #586F7C;
+    color: white;
+    border: none;
+    border-radius: 3px;
 }
 
 .startWriting{
-    color: #444554;
+    color: white;
     text-decoration: none;
     height: 50px;
     width: 20vw;
-    background-color: #EFD0CC;
-    border: 1px solid #444554;
+    background-color: #586F7C;
+    border: none;
+    border-radius: 3px;
 }
 
 .noPosts{

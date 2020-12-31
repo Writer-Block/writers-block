@@ -58,7 +58,7 @@ class UserPosts extends Component{
                 </div>
                 :
                 <div className="usersPost">
-                    <h1>Your Posts</h1>
+                    <h1>Your Writings</h1>
                     {mappedPosts}
                 </div>
             }
