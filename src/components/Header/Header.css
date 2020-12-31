@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #2f4550;
+    background-image: linear-gradient(#2f4550, #586f7c);
 }
 
 .profile-pic{
@@ -16,7 +16,7 @@
     
 }
 .update-button{
-    color: #000000;
+    color: whitesmoke;
     /* background-color: #BFACB5;  */
     border: none;
    background-color: transparent;
@@ -60,7 +60,7 @@
     justify-content: space-around;
     align-items: center;
     /* margin-right: 55%; */
-    background-image: repeating-linear-gradient( transparent, #586f7c);
+    background-image: repeating-linear-gradient(#586f7c, transparent);
     position: relative;
    
 }
@@ -84,4 +84,16 @@
     flex-direction: column;
     height: 100px;
     flex-wrap: wrap;
+}
+.logout-btn {
+    color: black;
+    
+   
+    padding: 30px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
 }
