@@ -28,7 +28,7 @@
     height: 25px;
     width: 8vw;
     margin-top: 20px;
-    background-color: #586F7C;
+    background-color: #B8DBD9;
     color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     text-decoration: none;
@@ -36,7 +36,6 @@
 }
 
 .submit:hover{
-    background-color: #B8DBD9;
-    color: black;
+    background-color: #586F7C;
     transition: .5s;
 }
