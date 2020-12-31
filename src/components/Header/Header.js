@@ -32,8 +32,8 @@ const Header = (props) => {
     const getMe = async () => {
         try{
             const res = await axios.get('/auth/me')
-            dispatch(getUser(res.data.user_id))
-            setPic(res.data)    
+            dispatch(getUser(+res.data.user_id))
+            setPic(res.data.profile_pic) 
         }catch(err){
             alert(err)
         }
@@ -41,7 +41,7 @@ const Header = (props) => {
 
     const getPic = async () => {
         try {
-            const res = await axios.get(`/api/pic/${user_id}`)
+            const res = await axios.get(`/api/pic/${+user_id}`)
             setPic(res.data)
           } catch (err) {
             console.log(err)
@@ -49,8 +49,8 @@ const Header = (props) => {
       }
 
     useEffect(() =>{
-            getMe()
-            getPic()
+        getPic()    
+        getMe()
     }, [getPic])
 
     const getSignedReq = ([file]) => {
