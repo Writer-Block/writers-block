@@ -24,7 +24,6 @@ class Dash extends Component{
             this.setState({
                 posts: posts.data
             })
-            console.log(this.state.posts)
         } catch(err){
             console.log(err)
         }

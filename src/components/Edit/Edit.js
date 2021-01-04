@@ -81,7 +81,6 @@ class Edit extends Component{
             post: updatedPost.data[0]
         })
         this.props.history.push('/userposts')
-        console.log(updatedPost);
     }
 
     // handles delete button. deletes the post and all comments that go with it
