@@ -127,6 +127,7 @@ const Header = (props) => {
         try {
             dispatch(logoutUser())
             setDelete(false)
+            history.push("/")
         } catch (err) {
             console.log(err)
         }
