@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt")
-
+const nodemailer = require('nodemailer');
 module.exports = {
 
     register: async (req, res) => {
@@ -49,7 +49,7 @@ module.exports = {
         }
     },
 
-    deleteUser: async (req, res) => {
+  deleteUser: async (req, res) => {
         const db = req.app.get('db')
         const {user_id} = req.session.user
 
@@ -60,5 +60,29 @@ module.exports = {
             console.log("Error in deleting account", err)
             res.sendStatus(500)
         }
-      }
+      },
+  
+    emailer: async (req, res) => {
+        const {email} = req.body;
+
+        let transporter = nodemailer.createTransport({
+            service: "outlook",
+            auth: {
+                user: "writers___block@outlook.com",
+                pass: "Writersblock$"
+            }
+        });
+
+        const options = {
+            from: "writers___block@outlook.com",
+            to: `${email}`,
+            subject: "Welcome to Writers Block",
+            text: "Welcome to Writers Block! You're ready to get and give advice, expand your writing skills, improve your novels, and interact with other authors. We're happy you joined. Enjoy."
+        };
+
+        const info = await transporter.sendMail(options);
+
+        console.log("Message sent: ", info.messageId);
+        res.status(200).send("Email sent");
+    }
 }
