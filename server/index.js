@@ -41,6 +41,7 @@ app.post("/auth/register", authCtrl.register)
 app.post("/auth/login", authCtrl.login)
 app.post("/auth/logout", authCtrl.logout)
 app.get('/auth/me', authCtrl.getMe)
+app.delete("/auth/delete", authCtrl.deleteUser)
 
 //# Comments
 app.get("/api/comments/:postId", commentCtrl.getComments)

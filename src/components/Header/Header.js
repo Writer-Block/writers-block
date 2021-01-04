@@ -17,6 +17,7 @@ const Header = (props) => {
     const [pic, setPic] = useState("")
     const [isUploading, setUploading] = useState(false)
     const [show, setShow] = useState(false)
+    const [del, setDelete] = useState(false)
 
     const logout = async () => {
         try {
@@ -53,7 +54,7 @@ const Header = (props) => {
             getPic()    
         }
         getMe()
-    }, [getPic])
+    }, [getPic, user_id])
 
     const getSignedReq = ([file]) => {
         setUploading(true)
@@ -116,8 +117,27 @@ const Header = (props) => {
     const showDropdown = () => {
         setShow(true)
     }
+
     const hideDropdown = () => {
         setShow(false)
+    }
+
+    const deleteUser = async () => {
+        await axios.delete (`auth/delete`)
+        try {
+            dispatch(logoutUser())
+            setDelete(false)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const showDelete = () => {
+        setDelete(true)
+    }
+
+    const cancelDelete = () => {
+        setDelete(false)
     }
 
         return (
@@ -167,20 +187,38 @@ const Header = (props) => {
                                                 <h3 className='h3'>Update Profile Picture</h3>
                                             </div>
                                         </div>
-                                        <hr className='hrHeader'></hr>
                                 </NavDropdown.Item>
+                                <hr className='hrHeader'></hr>
                                 <NavDropdown.Item>
                                     <Link to = "/"
-                                        className = "logout-btn"
+                                        className = "dropdown-btn"
                                         id = "logout"
                                         onClick = {logout}
                                     >
                                         Logout
                                     </Link>
                                 </NavDropdown.Item>
+                                <hr className='hrHeader'></hr>
+                                <NavDropdown.Item>
+                                    <Link
+                                        className = "dropdown-btn"
+                                        id = "delete"
+                                        onClick = {showDelete}
+                                    >
+                                        Delete Account?
+                                    </Link>
+                                </NavDropdown.Item>
                             </div>
                     </NavDropdown>
-                </div>
+                        <div className = {del ? "confirmBackground" : "hideConfirm"}></div>
+                        <div className = {del ? "confirmDelete" : "hideConfirm"}>
+                            <h5>Are you sure you want to delete your account? This cannot be undone</h5>
+                            <div className="confirmDeleteButtons">
+                                <button onClick = {cancelDelete} >Cancel</button>
+                                <button onClick = {deleteUser} >Delete</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 :
                     null
