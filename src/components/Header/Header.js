@@ -15,7 +15,6 @@ const Header = (props) => {
     const history = useHistory()
     const dispatch = useDispatch()
     const [pic, setPic] = useState("")
-    const [update, setUpdate] = useState(false)
     const [isUploading, setUploading] = useState(false)
     const [show, setShow] = useState(false)
 
@@ -24,6 +23,7 @@ const Header = (props) => {
             await axios.post('/auth/logout')
                 dispatch(logoutUser())
                 history.push('/')
+                setShow(false)
         } catch (err){
             console.log(err)
         }
@@ -83,7 +83,6 @@ const Header = (props) => {
         axios.put(signedRequest, file, options).then(() => {
             setPic(url)
             axios.put("/api/user", {user_id, url}).then((res) => {
-                setUpdate(false)
             })
             setUploading(false)
         }).catch(err => {
@@ -124,7 +123,8 @@ const Header = (props) => {
                 {user_id
                 ?
                 <div className = "header">
-                    <Link to='/dash'><img className='logo' alt='logo' src='https://cdn.discordapp.com/attachments/789196106965319750/794260091326824499/writersblocklogo.png'></img></Link>
+                    <Link to='/dash'><img className='logo' alt='logo' src='https://cdn.discordapp.com/attachments/789196106965319750/794260091326824499/writersblocklogo.png'></img>
+                    </Link>
                     <Link to = "/createpost"
                         className = "link"
                         id = "createpost"
