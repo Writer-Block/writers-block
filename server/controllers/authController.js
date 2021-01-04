@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt")
-
+const nodemailer = require('nodemailer');
 module.exports = {
 
     register: async (req, res) => {
@@ -48,4 +48,28 @@ module.exports = {
             res.status(200).send(me)
         }
     },
+
+    emailer: async (req, res) => {
+        const {email} = req.body;
+
+        let transporter = nodemailer.createTransport({
+            service: "outlook",
+            auth: {
+                user: "writers___block@outlook.com",
+                pass: "Writersblock$"
+            }
+        });
+
+        const options = {
+            from: "writers___block@outlook.com",
+            to: `${email}`,
+            subject: "Welcome to Writers Block",
+            text: "Welcome to Writers Block! You're ready to get and give advice, expand your writing skills, improve your novels, and interact with other authors. We're happy you joined. Enjoy."
+        };
+
+        const info = await transporter.sendMail(options);
+
+        console.log("Message sent: ", info.messageId);
+        res.status(200).send("Email sent");
+    }
 }
