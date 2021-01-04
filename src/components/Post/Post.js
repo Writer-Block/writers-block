@@ -30,7 +30,6 @@ class Post extends Component {
             this.setState({
                 content: res.data[0].content
             })
-            console.log(res.data[0])
         })
         .catch(err => console.log(err))
     }
@@ -67,7 +66,6 @@ class Post extends Component {
         this.setState({
             add: !this.state.add
         })
-        console.log(this.state)
     }
 
     handleComment = (e) => {

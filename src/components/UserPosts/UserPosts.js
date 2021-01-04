@@ -62,7 +62,6 @@ class UserPosts extends Component{
                     {mappedPosts}
                 </div>
             }
-            {console.log(this.props.user_id)}
         </div>
         )
     }

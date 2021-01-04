@@ -34,9 +34,15 @@
 .comment-button{
     border: none;
     padding: 10px;
-    background-color: #586F7C;
+    background-color: #586F7C86;
     color: white;
     border-radius: 3px;
+    cursor: pointer
+}
+
+.comment-button:hover{
+    background-color: #586F7CD0;
+    transition: .5s;
 }
 
 .comment-input{
