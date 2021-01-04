@@ -49,6 +49,19 @@ module.exports = {
         }
     },
 
+  deleteUser: async (req, res) => {
+        const db = req.app.get('db')
+        const {user_id} = req.session.user
+
+        try {
+            await db.auth.remove_user([+user_id])
+            res.sendStatus(200)
+        } catch(err) {
+            console.log("Error in deleting account", err)
+            res.sendStatus(500)
+        }
+      },
+  
     emailer: async (req, res) => {
         const {email} = req.body;
 
