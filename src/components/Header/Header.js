@@ -49,7 +49,9 @@ const Header = (props) => {
       }
 
     useEffect(() =>{
-        getPic()    
+        if(user_id){
+            getPic()    
+        }
         getMe()
     }, [getPic])
 
