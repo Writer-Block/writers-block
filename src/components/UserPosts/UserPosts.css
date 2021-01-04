@@ -14,7 +14,7 @@
 
 .userPost{
     width: 40vw;
-    min-height: 200px;
+    /* min-height: 200px; */
     background-color: white;
     text-align: left;
     padding-left: 10px;
@@ -22,6 +22,7 @@
     border: 1px solid #586F7C;
     margin-bottom: 8px;
     margin-top: 20px;
+    box-sizing: content-box;
 }
 
 .myPostLink{
