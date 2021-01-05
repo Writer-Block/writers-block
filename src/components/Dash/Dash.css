@@ -1,7 +1,9 @@
 .push {
     width: 100vw;
     height: 100%;
-    padding-top: 85px;
+    min-height: 100vh;
+    padding-top: 115px;
+    top: 100px
 }
 .dash-background{
     height: 100%;
