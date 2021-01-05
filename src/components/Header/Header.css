@@ -116,8 +116,8 @@
 
 .confirmDelete{
     position: absolute;
-    top: 37%;
-    left: 28%;
+    top: 37vh;
+    left: 28vw;
     width: 40vw;
     padding: 20px;
     background-color: #B8DBD9;
