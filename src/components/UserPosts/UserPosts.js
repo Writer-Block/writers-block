@@ -50,6 +50,7 @@ class UserPosts extends Component{
         })
 
         return(
+            <div className='push'>
         <div className='userPosts'>
             {!this.state.myPosts[0] ? 
                 <div className="noPosts">
@@ -62,6 +63,7 @@ class UserPosts extends Component{
                     {mappedPosts}
                 </div>
             }
+        </div>
         </div>
         )
     }
