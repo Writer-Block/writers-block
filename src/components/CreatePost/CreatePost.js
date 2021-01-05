@@ -21,6 +21,7 @@ const CreatePost = (props) => {
     }
 
     return(
+        <div className='push'>
             <form className = "create-post">
                 <textarea className = "post-input"
                     name = "content"
@@ -37,6 +38,7 @@ const CreatePost = (props) => {
                     Submit Post
                 </Link>
             </form>
+            </div>
     )
 }
 

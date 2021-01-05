@@ -5,6 +5,8 @@
     justify-content: space-around;
     align-items: center;
     background-image: linear-gradient(#2f4550, #586f7c);
+    position: fixed;
+
 }
 
 .profile-pic{

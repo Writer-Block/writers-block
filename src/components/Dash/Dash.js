@@ -32,6 +32,7 @@ class Dash extends Component{
     render(){
         const mappedPosts = this.state.posts.map((post, index) => {
             return(
+                
                 <div className='dash-background' key={index} >
                 <div className='container' >
                     <div className='post-container'>
@@ -47,10 +48,13 @@ class Dash extends Component{
                         <br></br>
                     </div>
                 </div>
+                
             )
         })
         return(
+            <div className='push'>
             <div>{mappedPosts}</div>
+            </div>
         )
     }
 }
