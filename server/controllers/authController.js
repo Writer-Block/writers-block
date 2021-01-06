@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt")
 const nodemailer = require('nodemailer');
+const smtpTransport = require('nodemailer-smtp-transport');
 const crypto = require('crypto');
 
 module.exports = {
@@ -71,13 +72,13 @@ module.exports = {
     emailer: async (req, res) => {
         const {email} = req.body;
 
-        let transporter = nodemailer.createTransport({
+        let transporter = nodemailer.createTransport(smtpTransport({
             service: "outlook",
             auth: {
                 user: "writersblockdawgsk@outlook.com",
                 pass: "Writersblock$"
             }
-        });
+        }));
 
         const options = {
             from: "writersblockdawgs@outlook.com",
@@ -111,16 +112,16 @@ module.exports = {
             await db.auth.add_forgot_password([token, email]);
             console.log(token);
 
-            const passTransporter = nodemailer.createTransport({
-                service: "outlook",
+            const passTransporter = nodemailer.createTransport(smtpTransport({
+                service: "gmail",
                 auth: {
-                    user: "writers___block@outlook.com",
+                    user: "writersblockdawgs@gmail.com",
                     pass: "Writersblock$"
                 }
-            });
+            }));
 
             const mailOptions = {
-                from: "writers___block@outlook.com",
+                from: "writersblockdawgs@gmail.com",
                 to: `${email}`,
                 subject: 'Reset Password',
                 html: ' <p>You are receiving this because you (or someone else) have requested the reset of the password for your account. Please click on the following link, or paste into your browser to complete the process. Please click on the following link, or paste into your browser to complete the process.If you did not request this, please ignore this email and your password will remain unchanged.</p>'+
