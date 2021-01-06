@@ -34,7 +34,7 @@ class Register extends Component{
         try {
             const user = await axios.post('auth/register', {email, username, password})
             this.props.getUser(user.data.user_id)
-            // await axios.post('/email', {email: email})// nodemailer request
+            await axios.post('/email', {email: email})// nodemailer request
             this.props.history.push('/dash')
         }catch(err){
         alert(err.response.request.response)
