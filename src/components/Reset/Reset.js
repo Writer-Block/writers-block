@@ -36,7 +36,7 @@ class Reset extends Component{
                 <div className='form passwordform'>
                     <p className='passwordp'>{this.state.toggleLogin ? "Update Password" : <Link className='backToLogin' to="/">Return to Login</Link>}</p>
                     <p className={this.state.toggleLogin ? 'hidePassText' : 'passwordp'}>{this.state.newuser ? "Password has been updated" : "This Link is not valid."}</p>
-                    <input className={this.state.toggleLogin ? 'input' : " hidePassText"} placeholder="New Password" onChange={this.handlePassword}></input>
+                    <input className={this.state.toggleLogin ? 'input' : " hidePassText"} type ='password' placeholder="New Password" onChange={this.handlePassword}></input>
                     <button className={this.state.toggleLogin ? 'loginButton passwordbutton' : "hidePassText"} onClick={this.resetPassword}>Update</button>
                 </div>
 
