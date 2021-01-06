@@ -7,6 +7,8 @@ import UserPosts from './components/UserPosts/UserPosts'
 import Post from './components/Post/Post'
 import CreatePost from './components/CreatePost/CreatePost'
 import Edit from './components/Edit/Edit'
+import ForgotPassword from './components/ForgotPassword/ForgotPassword'
+import Reset from './components/Reset/Reset'
 
 
 export default (
@@ -18,5 +20,7 @@ export default (
         <Route path='/post/:post_id' component = {Post}/>
         <Route path='/createpost' component = {CreatePost} />
         <Route path='/edit/:post_id' component = {Edit}/>
+        <Route path='/forgotpassword' component = {ForgotPassword}/>
+        <Route path='/reset/:resetid' component = {Reset}/>
     </Switch>
 )

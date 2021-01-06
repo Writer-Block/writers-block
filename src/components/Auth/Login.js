@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, {Component} from 'react'
 import {getUser} from '../../redux/reducer'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 import './Login.css'
 
 
@@ -59,6 +60,8 @@ class Login extends Component{
                 placeholder='Enter Password'
                 onChange={this.handlePassword}
                 />
+
+            <Link to='/forgotpassword' className='forgotpasswordlink'>Forgot Password?</Link>
             <button onClick={this.loginUser} className='loginButton'>Login</button>
             
             </form>
