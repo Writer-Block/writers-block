@@ -73,9 +73,9 @@ module.exports = {
         const {email} = req.body;
 
         let transporter = nodemailer.createTransport(smtpTransport({
-            service: "outlook",
+            service: "gmail",
             auth: {
-                user: "writersblockdawgsk@outlook.com",
+                user: "writersblockdawgs@gmail.com",
                 pass: "Writersblock$"
             }
         }));
