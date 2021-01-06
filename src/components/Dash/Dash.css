@@ -1,7 +1,16 @@
+.push {
+    width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    padding-top: 120px;
+    top: 100px;
+    background-color: #F8F8F8;
+}
 .dash-background{
     height: 100%;
     width: 100vw;
     background-color: #F8F8F8;
+   
 }
 
 .container{

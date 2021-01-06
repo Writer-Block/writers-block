@@ -116,6 +116,7 @@ class Edit extends Component{
             )
         })
         return(
+            <div className='push'>
             <div className="Edit">
                 <Link  to="/userposts"><button className="backLink">{'<-Back'}</button></Link>
                 <h1>Revise</h1>
@@ -141,6 +142,7 @@ class Edit extends Component{
                 <div>
                     {mappedComments}
                 </div>
+            </div>
             </div>
         )
     }

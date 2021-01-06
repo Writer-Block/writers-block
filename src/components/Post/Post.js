@@ -84,6 +84,7 @@ class Post extends Component {
             />
         ))
         return(
+            <div className='push'>
             <div className = "post">
                     <p className = "content">{content}</p>
                     {add
@@ -123,6 +124,7 @@ class Post extends Component {
                     <ul className = "comments">
                         {mappedComments}
                     </ul>
+            </div>
             </div>
         )
     }

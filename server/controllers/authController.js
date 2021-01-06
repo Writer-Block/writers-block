@@ -12,6 +12,10 @@ module.exports = {
         if (existingUser[0]) {
           return res.status(409).send("User already exists with that username")
         }
+        const existingEmail = await db.auth.check_email(email)
+        if (existingEmail[0]){
+            return res.status(409).send("User already exists with that email")
+        }
         const salt = bcrypt.genSaltSync(10)
         const hash = bcrypt.hashSync(password, salt)
         const [newUser] = await db.auth.add_user([username, hash, email, profile_pic])
