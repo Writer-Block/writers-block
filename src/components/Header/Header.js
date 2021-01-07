@@ -31,15 +31,15 @@ const Header = (props) => {
     }
 
     const getMe = useCallback(async () => {
-        if(user_id){
-            try{
-                const res = await axios.get('/auth/me')
+        try{
+            const res = await axios.get('/auth/me')
+            if (res.data.user_id){
                 dispatch(getUser(+res.data.user_id))
                 setPic(res.data.profile_pic) 
-            }catch(err){
-                alert(err)
             }
-        } 
+        }catch(err){
+            alert(err)
+        }
     }, [dispatch])
 
     const getPic = useCallback(async () => {
