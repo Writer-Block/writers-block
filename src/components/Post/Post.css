@@ -23,7 +23,7 @@
 
 
 .comment-form{
-    height: 15vh;
+    height: 25vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -46,6 +46,7 @@
 }
 
 .comment-input{
+    height: 10vh;
     width: 40vw;
     background-color: white;
     border: solid 1px #586F7C;
