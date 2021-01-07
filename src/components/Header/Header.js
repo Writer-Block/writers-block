@@ -31,13 +31,15 @@ const Header = (props) => {
     }
 
     const getMe = useCallback(async () => {
-        try{
-            const res = await axios.get('/auth/me')
-            dispatch(getUser(+res.data.user_id))
-            setPic(res.data.profile_pic) 
-        }catch(err){
-            alert(err)
-        }
+        if(user_id){
+            try{
+                const res = await axios.get('/auth/me')
+                dispatch(getUser(+res.data.user_id))
+                setPic(res.data.profile_pic) 
+            }catch(err){
+                alert(err)
+            }
+        } 
     }, [dispatch])
 
     const getPic = useCallback(async () => {
