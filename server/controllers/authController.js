@@ -49,12 +49,17 @@ module.exports = {
 
     getMe: async (req, res) => {
         if (req.session.user){
-            const {user_id} = req.session.user    
-            const db = req.app.get('db')
-            const [me] = await db.auth.get_me(+user_id)
-            res.status(200).send(me)
-        } else {
-            res.status(200)
+           try{
+                const {user_id} = req.session.user    
+                const db = req.app.get('db')
+                const [me] = await db.auth.get_me(+user_id)
+                res.status(200).send(me)
+           }  catch(err) {
+                console.log("Error in refreshing", err)
+                res.sendStatus(500)
+            }
+        }  else {
+            res.sendStatus(200)
         }
     },
 
