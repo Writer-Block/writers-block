@@ -125,7 +125,7 @@ module.exports = {
                 to: `${email}`,
                 subject: 'Reset Password',
                 html: ' <p>You are receiving this because you (or someone else) have requested the reset of the password for your account. Please click on the following link, or paste into your browser to complete the process. Please click on the following link, or paste into your browser to complete the process.If you did not request this, please ignore this email and your password will remain unchanged.</p>'+
-                    '<p>Click <a href="http:///writersblock.xyz/#/reset/' + token + '">here</a> to reset your password</p>' 
+                    '<p>Click <a href="http://writersblock.xyz/#/reset/' + token + '">here</a> to reset your password</p>' 
             }
 
             const info = await passTransporter.sendMail(mailOptions);
