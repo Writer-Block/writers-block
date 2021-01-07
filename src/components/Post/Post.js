@@ -90,7 +90,7 @@ class Post extends Component {
                     {add
                         ?
                         <form className = "comment-form">
-                            <input className = "comment-input"
+                            <textarea className = "comment-input"
                                 name = "comment"
                                 value = {comment}
                                 placeholder = "Enter your comment"
