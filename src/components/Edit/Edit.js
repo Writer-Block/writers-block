@@ -100,7 +100,7 @@ class Edit extends Component{
             
             return(
                 <div key={comment.comment_id} className="editComments">
-                    <input name="" className="comment" id={`comment ${comment.comment_id}`} value={comment.comment} readOnly></input>
+                    <textarea name="" className="comment" id={`comment ${comment.comment_id}`} value={comment.comment} readOnly></textarea>
                     <button className="copyButton" onClick={() => {
                         /* Get the text field */
                         var copyText = document.getElementById(`comment ${comment.comment_id}`);
