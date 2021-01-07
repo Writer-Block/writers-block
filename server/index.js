@@ -43,7 +43,7 @@ app.post("/auth/logout", authCtrl.logout)
 app.get('/auth/me', authCtrl.getMe)
 app.delete("/auth/delete", authCtrl.deleteUser)
 app.post("/email", authCtrl.emailer); //nodemailer
-app.post("/forgotpassword", authCtrl.forgotpassword);
+app.post("/forgotpassword", authCtrl.forgotPassword);
 app.put("/resetpassword/:passwordtoken", authCtrl.resetPassword);
 
 //# Comments
