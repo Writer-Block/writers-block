@@ -118,8 +118,9 @@ class Edit extends Component{
         return(
             <div className='push'>
             <div className="Edit">
-                <Link  to="/userposts"><button className="backLink">{'<-Back'}</button></Link>
-                <h1>Revise</h1>
+                <div className="topOfEdit">
+                    <Link  to="/userposts"><button className="backLink">{'<-Back'}</button></Link>
+                </div>
                 <div>
                     <textarea onChange={ e => this.changeHandler(e)} name="input" type="text" className="editContent" value={this.state.input}></textarea>
                 </div>
