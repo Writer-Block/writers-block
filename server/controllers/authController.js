@@ -81,7 +81,7 @@ module.exports = {
         }));
 
         const options = {
-            from: "writersblockdawgs@outlook.com",
+            from: "writersblockdawgs@gmail.com",
             to: `${email}`,
             subject: "Welcome to Writers Block",
             text: "Welcome to Writers Block! You're ready to get and give advice, expand your writing skills, improve your novels, and interact with other authors. We're happy you joined. Enjoy."
