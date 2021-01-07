@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useCallback} from 'react'
 import {Link, useHistory} from "react-router-dom"
 import {connect, useDispatch} from "react-redux"
 import {logoutUser, getUser} from "../../redux/reducer"
@@ -30,7 +30,7 @@ const Header = (props) => {
         }
     }
 
-    const getMe = async () => {
+    const getMe = useCallback(async () => {
         try{
             const res = await axios.get('/auth/me')
             dispatch(getUser(+res.data.user_id))
@@ -38,23 +38,23 @@ const Header = (props) => {
         }catch(err){
             alert(err)
         }
-    }
+    }, [dispatch])
 
-    const getPic = async () => {
+    const getPic = useCallback(async () => {
         try {
             const res = await axios.get(`/api/pic/${+user_id}`)
             setPic(res.data)
           } catch (err) {
             console.log(err)
           }
-      }
+      }, [user_id])
 
     useEffect(() =>{
         if(user_id){
-            getPic()    
+            getPic()   
         }
-        getMe()
-    }, [getPic, user_id])
+        getMe() 
+    }, [getPic, user_id, getMe])
 
     const getSignedReq = ([file]) => {
         setUploading(true)
