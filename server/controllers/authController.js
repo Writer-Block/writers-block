@@ -93,7 +93,7 @@ module.exports = {
         res.status(200).send("Email sent");
     },
 
-    forgotpassword: async (req, res) => {
+    forgotPassword: async (req, res) => {
         const db = req.app.get('db')
 
         const {email} = req.body;
