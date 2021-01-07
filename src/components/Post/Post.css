@@ -68,7 +68,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-    height: 10vh;
-    width: 20vw;
+    min-height: 10vh;
+    min-width: 20vw;
     border: solid 1px #586F7C;
 }

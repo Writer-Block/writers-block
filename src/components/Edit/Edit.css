@@ -11,9 +11,6 @@
 .backLink{
     color: #444554;
     text-decoration: none;
-    position: absolute;
-    left: 30vw;
-    margin-top: 30px;
     height: 30px;
     width: 75px;
     background-color: #586F7C86;
@@ -151,4 +148,12 @@
 .confirmDeleteButtons button:hover{
     background-color: #586F7CD0;
     transition: .5s;
+}
+
+.topOfEdit{
+    width: 40vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px;
 }
