@@ -41,6 +41,7 @@ class Post extends Component {
             this.setState({
                 comments: res.data
             })
+            console.log(res.data)
           } catch (err) {
             console.log(err)
           }

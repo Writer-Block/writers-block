@@ -21,7 +21,7 @@ class Register extends Component{
     }
     
     handleUsername = (e) => {
-        this.setState({   username: e.target.value})
+        this.setState({ username: e.target.value})
     }
 
     handlePassword = (e) => {
@@ -30,12 +30,16 @@ class Register extends Component{
 
     registerUser = async (e) => {
         e.preventDefault()
-        const {email, username, password} =this.state;
+        const {email, username, password} = this.state;
         try {
-            const user = await axios.post('auth/register', {email, username, password})
-            this.props.getUser(user.data.user_id)
-            // await axios.post('/email', {email: email})// nodemailer request
-            this.props.history.push('/dash')
+            if (!email || !username || !password){
+                alert("Please fill out all fields")
+            } else {
+                const user = await axios.post('auth/register', {email, username, password})
+                this.props.getUser(user.data.user_id)
+                // await axios.post('/email', {email: email})// nodemailer request
+                this.props.history.push('/dash')
+            }
         }catch(err){
         alert(err.response.request.response)
         }
